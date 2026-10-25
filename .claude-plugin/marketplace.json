@@ -1,0 +1,14 @@
+{
+  "name": "perfect-prompt",
+  "owner": { "name": "Yahia Aktham", "url": "https://github.com/yahiaaktham" },
+  "metadata": { "description": "Perfect Prompt: a Claude Code mod that makes your first prompt complete before the main model sees it." },
+  "plugins": [
+    {
+      "name": "perfect-prompt",
+      "source": "./plugins/perfect-prompt",
+      "description": "Mod: makes the first prompt complete (cheap-model gate, grounded questions one dialog at a time, notes-folder and project context, optional web best practices, review in the prompt box, lessons after each task).",
+      "version": "0.2.0",
+      "category": "mod"
+    }
+  ]
+}

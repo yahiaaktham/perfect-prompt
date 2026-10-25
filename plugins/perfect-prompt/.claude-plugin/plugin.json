@@ -1,0 +1,62 @@
+{
+  "name": "perfect-prompt",
+  "version": "0.2.0",
+  "description": "Makes your first prompt complete before the main model sees it: a cheap-model gate, one round of grounded questions (one dialog each), context from your notes folder and project, optional web best practices, the assembled prompt in your prompt box for review, and lessons learned after each task.",
+  "author": { "name": "Yahia Aktham", "url": "https://github.com/yahiaaktham" },
+  "homepage": "https://github.com/yahiaaktham/perfect-prompt",
+  "repository": "https://github.com/yahiaaktham/perfect-prompt",
+  "license": "MIT",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "mode": {
+      "type": "string",
+      "title": "How the enhanced prompt is sent",
+      "description": "review: the assembled prompt lands in your prompt box and you press Enter; auto: it is sent at once",
+      "default": "review",
+      "options": ["review", "auto"]
+    },
+    "model": {
+      "type": "string",
+      "title": "Cheap model for the gate, questions, assembly and reflection",
+      "description": "An alias (haiku, sonnet) or a full model id",
+      "default": "haiku"
+    },
+    "vaultPath": {
+      "type": "string",
+      "title": "Notes folder (optional)",
+      "description": "A folder with your standing rules and memory notes, for example an Obsidian vault; ~ is your home folder. The default is your Claude Code config folder. A missing folder or file is skipped.",
+      "default": "~/.claude"
+    },
+    "rulesFile": {
+      "type": "string",
+      "title": "Rules file inside the notes folder",
+      "description": "Read as your standing rules (head only). Relative to the notes folder, or an absolute path. With the default folder this is your global CLAUDE.md.",
+      "default": "CLAUDE.md"
+    },
+    "memoryIndex": {
+      "type": "string",
+      "title": "Memory index inside the notes folder",
+      "description": "A markdown index with one line per fact file, '- [Title](file.md) - summary'; the cheap model picks up to 6 files from it and they are read from the index's folder. Relative to the notes folder, or an absolute path.",
+      "default": "MEMORY.md"
+    },
+    "webSearch": {
+      "type": "string",
+      "title": "Web best practices",
+      "description": "ask: one of the questions offers a web search; auto: always search; off: never",
+      "default": "ask",
+      "options": ["ask", "auto", "off"]
+    },
+    "maxQuestions": {
+      "type": "number",
+      "title": "Questions per round",
+      "description": "1 to 3 content questions; the dialog also carries the web and continue questions",
+      "default": 2
+    },
+    "minWords": {
+      "type": "number",
+      "title": "Shortest prompt that is checked",
+      "description": "Prompts with fewer words are sent unchanged",
+      "default": 12
+    }
+  }
+}
